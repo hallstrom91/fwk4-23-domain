@@ -51,7 +51,6 @@ DB_USER=
 DB_DATABASE=
 DB_PASSWORD=
 PORT=
-JWT_SECRET=
 ```
 
 5. Start the domain server:
