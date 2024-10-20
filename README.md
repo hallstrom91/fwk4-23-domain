@@ -243,7 +243,7 @@ Adds a comment to a specific task.
 
 ### Create Board
 
-**POST** `board/create`
+**POST** `/board/create`
 
 Creates a new board and automatically assigns the user who created it as an admin.
 
@@ -277,7 +277,7 @@ Creates a new board and automatically assigns the user who created it as an admi
 
 ### Get User Boards
 
-**GET** `board/my-boards`
+**GET** `/board/my-boards`
 
 Retrieves all boards that the authenticated user is a member of, along with the user's role in each board.
 
