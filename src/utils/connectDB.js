@@ -1,4 +1,4 @@
-require("dotenv").config({ path: [".env"] });
+require("dotenv").config({ path: [".env.development.local", ".env"] });
 const mysql = require("mysql2/promise");
 
 const pool = mysql.createPool({
