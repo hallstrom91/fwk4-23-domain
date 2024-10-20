@@ -16,21 +16,6 @@ const createTask = async (req, res) => {
   }
 };
 
-/* const getTask = async (req, res) => {
-  const taskId = req.params.taskId;
-  try {
-    const [rows] = await pool.query("SELECT * FROM tasks WHERE id = ?", [
-      taskId,
-    ]);
-    if (rows.length === 0) {
-      return res.status(404).json({ message: "Task not found" });
-    }
-    res.status(200).json(rows[0]);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to get selected task" });
-  }
-}; */
-
 const getTaskForBoard = async (req, res) => {
   const boardId = req.params.boardId;
   try {
