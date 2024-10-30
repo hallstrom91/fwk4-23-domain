@@ -835,7 +835,7 @@ Updates the role of an existing member in the specified board.
 }
 ```
 
-**RESPONSE (200 - SUCCESS): **
+**RESPONSE (200 - SUCCESS):**
 
 ```JSON
 {
