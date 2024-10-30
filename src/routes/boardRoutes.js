@@ -21,6 +21,6 @@ router.delete(
   verifyJwt,
   boardController.removeBoardMember,
 );
-router.delete("/deleteboard/:boardId", verifyJwt, boardController.deleteBoard);
+router.delete("/delete/:boardId", verifyJwt, boardController.deleteBoard);
 
 module.exports = router;
