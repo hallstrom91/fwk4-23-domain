@@ -1,8 +1,7 @@
 const fetch = require("node-fetch");
 
 const verifyJwt = async (req, res, next) => {
-  const token = req.headers["authorization"];
-  // const { token } = req.body; // send JWT in body (works)
+  const token = req.cookies.token;
 
   if (!token) {
     return res.status(401).json({ message: "Token missing" });
@@ -13,11 +12,8 @@ const verifyJwt = async (req, res, next) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        token: token.replace("Bearer ", ""),
-        // token: token, // from req.body value
-      }),
     });
 
     if (!response.ok) {
