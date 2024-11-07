@@ -9,8 +9,8 @@ const getTaskForBoard = async (req, res) => {
     ]);
 
     if (!tasks || tasks.length === 0) {
-      return res.status(404).json({
-        error: "No tasks found for this board. Create one to get started!",
+      return res.status(204).json({
+        message: "No tasks found for this board. Create one to get started!",
       });
     }
 
@@ -31,7 +31,9 @@ const openTask = async (req, res) => {
     );
 
     if (!taskRows || taskRows.length === 0) {
-      return res.status(404).json({ error: "Task not found" });
+      return res.status(204).json({
+        message: "Task not found, cant open what does not exists. Madman!",
+      });
     }
 
     const [comments] = await pool.query(
