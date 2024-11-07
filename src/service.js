@@ -11,9 +11,39 @@ const taskRoutes = require("./routes/taskRoutes.js");
 const inviteRoutes = require("./routes/inviteRoutes.js");
 
 app.use(express.json());
-app.use(helmet());
-app.use(cors());
 app.use(cookieParser());
+
+const corsOptions = {
+  credentials: true,
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
+    "http://localhost:5173",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      defaultSrc: ["'self'"],
+      connectSrc: [
+        "'self'",
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:3002",
+        "http://localhost:5173",
+      ],
+      frameSrc: ["'self'"],
+      "img-src": ["'self'", "data:"],
+    },
+  }),
+);
+
+app.use(cors(corsOptions));
 
 const requestLimit = rateLimit({
   windowMs: 15 * 60 * 1000,

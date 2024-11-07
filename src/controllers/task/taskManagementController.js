@@ -8,7 +8,7 @@ const updateTask = async (req, res) => {
 
   try {
     const [taskRows] = await pool.query(
-      `SELECT * FROM WHERE id = ? AND board_id = ? AND created_by = =`,
+      `SELECT * FROM WHERE id = ? AND board_id = ? AND created_by = ?`,
       [taskId, boardId, userId],
     );
 
@@ -27,7 +27,7 @@ const updateTask = async (req, res) => {
 
 const deleteTask = async (req, res) => {
   const boardId = req.params.boardId;
-  const taskId = req.params.task_id;
+  const taskId = req.params.taskId;
   const userId = req.user.userId;
 
   try {
