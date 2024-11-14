@@ -6,7 +6,7 @@ const cookieConsentAccept = (req, res) => {
     httpOnly: false, // true in https mode
     sameSite: "lax", // "lax" later to prevent csrf attacks
   });
-  logCookieConsent(req);
+  logCookieConsent(req); // audit - payload // access req.header
   res.status(200).json({ message: "Cookie consent accepted" });
 };
 

@@ -13,7 +13,8 @@ const logger = winston.createLogger({
 
     transports: [
         new winston.transports.Console({
-            format: combine(cli())
+            // format: combine(cli())
+            format: cli(),
         }),
         new winston.transports.File({
             filename: path.join(__dirname, 'server.log'),
@@ -24,7 +25,8 @@ const logger = winston.createLogger({
 
 const logCookieConsent =(req) => {
     logger.info({
-        host: req.host,
+        message: "user accepted cookie consent", // added due Console cli() log priority
+        host: req.hostname,
         consentStatus: "accepted",
         userId: req.user ? req.user.id : "anonymous",
         cookie: req.cookies.token ? req.cookies.token : "user not logged in",
