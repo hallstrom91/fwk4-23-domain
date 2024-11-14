@@ -9,6 +9,7 @@ const cookieRoutes = require("./routes/cookieRoutes.js");
 const boardRoutes = require("./routes/boardRoutes.js");
 const taskRoutes = require("./routes/taskRoutes.js");
 const inviteRoutes = require("./routes/inviteRoutes.js");
+const logger = require("./utils/logger.js")
 
 app.use(express.json());
 app.use(cookieParser());

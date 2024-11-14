@@ -1,9 +1,12 @@
+const { logCookieConsent} = require('../..utils/logger.js');
+
 const cookieConsentAccept = (req, res) => {
   res.cookie("cookieConsent", "accepted", {
     maxAge: 1000 * 60 * 60 * 24 * 365,
     httpOnly: false, // true in https mode
     sameSite: "lax", // "lax" later to prevent csrf attacks
   });
+  logCookieConsent(req);
   res.status(200).json({ message: "Cookie consent accepted" });
 };
 
