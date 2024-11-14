@@ -20,6 +20,7 @@
     "express-rate-limit": "^7.4.1",
     "helmet": "^8.0.0",
     "mysql2": "^3.11.3",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "winston": "^3.17.0"
   }
 }
