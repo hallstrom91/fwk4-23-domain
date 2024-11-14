@@ -1,4 +1,4 @@
-const { logCookieConsent} = require('../..utils/logger.js');
+const { logCookieConsent} = require('../../utils/logger.js');
 
 const cookieConsentAccept = (req, res) => {
   res.cookie("cookieConsent", "accepted", {
